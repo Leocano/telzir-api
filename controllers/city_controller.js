@@ -8,3 +8,10 @@ exports.create = (req, res) => {
     res.json({city})
   })
 }
+
+exports.index = (req, res) => {
+  City.findAll()
+    .then(cities => {
+      res.json(cities)
+    })
+}
