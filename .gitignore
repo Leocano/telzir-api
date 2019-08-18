@@ -1,2 +1,5 @@
 /.vscode
 /node_modules
+
+# Remove this later so they can see the database
+/db
