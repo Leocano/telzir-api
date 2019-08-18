@@ -1,22 +1,27 @@
 import assert from 'assert'
 import City from '../../models/City'
 
-describe('City model', () => {
-  it('creates city', () => {
+describe('City model', function () {
+  it('creates city', function(done) {
     City.create({
       ddd_code: 666,
       name: 'Mauá City'
-    }).then(city => {
+    })
+    .then(city => {
       assert.equal(city.ddd_code, 666)
+    })
+    .finally(() => {
+      done()
     })
   })
 
-  after(done => {
+  after(function(done) {
     City.destroy({
       where: {
         ddd_code: 666
       }
-    }).then(() => {
+    })
+    .finally(() => {
       done()
     })
   })
