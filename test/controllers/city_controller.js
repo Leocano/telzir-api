@@ -5,10 +5,12 @@ import app from '../../app'
 const port = process.env.port || 8000
 
 describe('City controller', function() {
-  before(function(done) {
+  before(function() {
     this.server = app.listen(port, function() {
       console.log('test server running on port ' + port)
-      done()
+      return axios.post(`http://localhost:${port}/ddd-codes`, {
+        ddd_code: 666,
+      })
     })
   })
 
