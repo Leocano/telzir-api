@@ -18,6 +18,7 @@ describe('City controller', function() {
       name: 'Mauá City'
     })
     .then(res => {
+      assert.equal(res.status, 200)
       assert.equal(res.data.city.ddd_code, 666)
       assert.equal(res.data.city.name, 'Mauá City')
     })
@@ -29,6 +30,7 @@ describe('City controller', function() {
   it('shows all created cities', function() {
     return axios.get(`http://localhost:${port}/cities`)
       .then(res => {
+        assert.equal(res.status, 200)
         assert.equal(res.data[0].ddd_code, 666)
         assert.equal(res.data[0].name, 'Mauá City')
       })
