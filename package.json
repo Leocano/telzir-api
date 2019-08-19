@@ -1,0 +1,27 @@
+{
+  "name": "telzir-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "set DB_NAME=telzir_dev.db && nodemon --exec babel-node index.js",
+    "test": "set DB_NAME=telzir_test.db && mocha --recursive --require @babel/register"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "sequelize": "^5.15.0",
+    "sqlite3": "^4.1.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.5.5",
+    "@babel/core": "^7.5.5",
+    "@babel/node": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "mocha": "^6.2.0",
+    "moxios": "^0.4.0"
+  }
+}
