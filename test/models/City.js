@@ -1,7 +1,30 @@
 import assert from 'assert'
 import City from '../../models/City'
+import DDDCode from '../../models/DDDCode'
 
 describe('City model', function () {
+  before(function() {
+    return Promise.all([
+      new Promise((resolve, reject) => {
+        return DDDCode.create({
+          ddd_code: 666
+        }).then(() => {
+          resolve()
+        }).catch(err => {
+          reject(err)
+        })
+      }),
+      new Promise((resolve, reject) => {
+        return City.sync({ force: true })
+        .then(() => {
+          resolve()
+        }).catch(err => {
+          reject(err)
+        })
+      }),
+    ])
+  })
+
   it('creates city', function() {
     return City.create({
       ddd_code: 666,
@@ -22,10 +45,23 @@ describe('City model', function () {
   })
 
   after(function() {
-    return City.destroy({
-      where: {
-        ddd_code: 666
-      }
-    })
+    return Promise.all([
+      new Promise((resolve, reject) => {
+        return City.sync({ force: true })
+        .then(() => {
+          resolve()
+        }).catch(err => {
+          reject(err)
+        })
+      }),
+      new Promise((resolve, reject) => {
+        return DDDCode.sync({ force: true })
+        .then(() => {
+          resolve()
+        }).catch(err => {
+          reject(err)
+        })
+      })
+    ])
   })
 })
