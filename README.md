@@ -5,6 +5,7 @@
 - Clonar repositório
 - Executar ```npm install``` na pasta raiz para baixar dependências
 - Executar ```npm start``` para iniciar o servidor
+- Utilize o Postman ou a interface em https://github.com/Leocano/telzir-interface para consumir a API
 
 ## Instruções para teste
 - Executar ```npm test``` na pasta raiz
